@@ -433,7 +433,7 @@ function acme() {
       fi
     fi
   else
-    print_error "SSL 证书生成失败"
+    print_error "SSL 证书生成失败, 大概率是 80端口 不可从外部访问，检查一下防火墙配置"
     rm -rf "$HOME/.acme.sh/${domain}_ecc"
     if [[ -n $(type -P wgcf) && -n $(type -P wg-quick) ]]; then
       wg-quick up wgcf >/dev/null 2>&1
